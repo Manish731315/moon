@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't Cry My Moon</title>
+    <style>
+        body {
+            background: radial-gradient(circle, #001f3f, #000); /* A gradient night sky */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .moon {
+            background: #ffff;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 30px #ffff, 0 0 60px #ffff; /* Glow effect */
+        }
+        .moon::before {
+            content: "";
+            background-color: black;
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            animation: eclipse 3.2s linear infinite alternate; /* Animation name */
+        }
+        @keyframes eclipse {
+            0% {
+                transform: translateX(30px) scale(0.9);
+                box-shadow: none;
+            }
+            50% {
+                transform: translate(0px, 0px) scale(1.02);
+                box-shadow: 0 0 10px #ffff, 0 0 80px 2px #ffff;
+            }
+            100% {
+                transform: translateX(-30px) scale(0.9);
+                box-shadow: none;
+            }
+        }
+        .text {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="moon"></div>
+    <div class="text">Don't cry, my moon 🌙</div>
+</body>
+</html>
